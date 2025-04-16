@@ -1,5 +1,5 @@
-from maquina_snacks_proyecto.servicio_snacks import ServicioSnacks
-from maquina_snacks_proyecto.snack import Snack
+from servicio_snacks import ServicioSnacks
+from snack import Snack
 
 
 class MaquinaSnacks:

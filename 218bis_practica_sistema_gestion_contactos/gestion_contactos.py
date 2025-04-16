@@ -32,7 +32,7 @@ class GestionContactos:
     
     def guardar_contacto_archivo(self, contactList):
         try:
-            with open(self.NOMBRE_ARCHIVO, 'a') as archivo:
+            with open(self.NOMBRE_ARCHIVO, 'a', encoding='utf8') as archivo:
                 for contacto in contactList:
                     archivo.write(f'{contacto.escribir_contacto()}\n')
 

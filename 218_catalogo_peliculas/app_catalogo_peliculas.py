@@ -1,5 +1,5 @@
-from catalogo_peliculas.pelicula import Pelicula
-from catalogo_peliculas.servicio_peliculas import ServicioPeliculas
+from pelicula import Pelicula
+from servicio_peliculas import ServicioPeliculas
 
 
 class AppCatalogoPeliculas:

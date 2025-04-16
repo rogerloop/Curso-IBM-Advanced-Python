@@ -1,6 +1,6 @@
 import os.path
 
-from maquina_snacks_proyecto.snack import Snack
+from snack import Snack
 
 
 class ServicioSnacks:
