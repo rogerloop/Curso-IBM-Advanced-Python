@@ -1,4 +1,5 @@
 import os.path
+from contacto import Contacto
 
 
 class GestionContactos:
@@ -11,12 +12,18 @@ class GestionContactos:
         # Si existe obtengo los contactos del archivo con el método obtener
         if os.path.isfile(self.NOMBRE_ARHIVO):
             self.contactList = self.obtener_contactos()
+        # Sino, creo el archivo con valores a 0
+        else:
+            self.crear_archivo_contactos()
 
+    def crear_archivo_contactos(self):
+        contactList  = [Contacto(' ', ' ', ' ')]
+        self.guardar_contacto_archivo (contactList)
     
     def obtener_contactos(self):
         contactList = []
         try:
-            with open(self.NOMBRE_ARCHIVO, 'r') as archivo
+            with open(self.NOMBRE_ARCHIVO, 'r', encoding='utf8') as archivo:
                 for linea in archivo:
                     # Uso Strip para  eliminar caracteres en blanco delante o detras.
                     # Uso Split para usar el separador coma como separador entre valores de cada variable
@@ -40,8 +47,8 @@ class GestionContactos:
             print(f'Error al guardar contactos en archivo: {e}')
                                                        
 
-    def agregar_contactos(self, nombre, telefono, email):
-        self.contactList.append([contacto])
+    def agregar_contactos(self, contacto):
+        self.contactList.append(contacto)
         self.guardar_contacto_archivo([contacto])
 
     
