@@ -3,18 +3,15 @@ from contacto import Contacto
 
 
 class GestionContactos:
-    NOMBRE_ARHIVO = 'contactos.txt'
+    NOMBRE_ARCHIVO = 'contactos.txt'
 
     
     def __init__(self):
         self.contactList = []
         # Reviso si existe archivo contactos.txt
         # Si existe obtengo los contactos del archivo con el método obtener
-        if os.path.isfile(self.NOMBRE_ARHIVO):
+        if os.path.isfile(self.NOMBRE_ARCHIVO):
             self.contactList = self.obtener_contactos()
-        # Sino, creo el archivo con valores a 0
-        else:
-            self.crear_archivo_contactos()
 
     def crear_archivo_contactos(self):
         contactList  = [Contacto(' ', ' ', ' ')]
