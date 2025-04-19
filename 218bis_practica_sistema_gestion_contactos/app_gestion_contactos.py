@@ -1,7 +1,7 @@
 from gestion_contactos import GestionContactos # Import de class to work with
 from contacto import Contacto
 
-class AppGestionContacos:
+class AppGestionContactos:
     def __init__(self):
         self.gestion_contactos = GestionContactos()
 
@@ -45,9 +45,19 @@ class AppGestionContacos:
         self.gestion_contactos.agregar_contactos(nuevo_contacto)
         print('Contacto agregado correctamente. ')
 
+    def mostrar_contactos(self):
+        contactos = self.gestion_contactos.obtener_contactos()
+        if contactos:
+            print('***Lista de contactos: ')
+            for contacto in contactos:
+                print(f'Nombre: {contacto.nombre}, Teléfono: {contacto.telefono}, Email: {contacto.email}')
+        else:
+            print('No hay contactos disponibles.')
+
+
 
 # Programa Principal
 if __name__ == '__main__':
-    appContactos = AppGestionContacos()
+    appContactos = AppGestionContactos()
     appContactos.mostrar_menu()
 
