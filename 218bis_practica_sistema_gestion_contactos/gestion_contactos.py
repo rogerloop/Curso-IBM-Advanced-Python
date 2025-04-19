@@ -3,7 +3,8 @@ from contacto import Contacto
 
 
 class GestionContactos:
-    NOMBRE_ARCHIVO = 'contactos.txt'
+    # Ruta absoluta al archivo contactos.txt en el subdirectorio actual
+    NOMBRE_ARCHIVO = os.path.join(os.path.dirname(__file__), 'contactos.txt')
 
     
     def __init__(self):
@@ -13,9 +14,9 @@ class GestionContactos:
         if os.path.isfile(self.NOMBRE_ARCHIVO):
             self.contactList = self.obtener_contactos()
 
-    def crear_archivo_contactos(self):
-        contactList  = [Contacto(' ', ' ', ' ')]
-        self.guardar_contacto_archivo (contactList)
+   # def crear_archivo_contactos(self):
+    #    contactList  = [Contacto(' ', ' ', ' ')]
+     #   self.guardar_contacto_archivo (contactList)
     
     def obtener_contactos(self):
         contactList = []
