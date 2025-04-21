@@ -4,7 +4,7 @@ import os
 class ServicioPeliculas:
 
     def __init__(self):
-        self.nombre_archivo = 'peliculas.txt'
+        self.nombre_archivo = os.path.join(os.path.dirname(__file__), 'peliculas.txt')
 
     def agregar_pelicula(self, pelicula):
         with open(self.nombre_archivo, 'a', encoding='utf8') as archivo:
