@@ -50,11 +50,38 @@ class AppGestionContactos:
         if contactos:
             print('***Lista de contactos: ')
             for contacto in contactos:
-                print(f'Nombre: {contacto.nombre}, Teléfono: {contacto.telefono}, Email: {contacto.email}')
+                print(f'ID: {contacto.id_contacto}, Nombre: {contacto.nombre}, Teléfono: {contacto.telefono}, Email: {contacto.email}')
         else:
             print('No hay contactos disponibles.')
 
+    def buscar_contacto(self):
+        nombre_buscar = input('Introduce el nombre del contacto a buscar: ').lower()
+        contactos = self.gestion_contactos.get_contactList()
+        resultados = [contacto for contacto in contactos if nombre_buscar in contacto.nombre.lower()]
+    
+        if resultados:
+            print('*** Resultados de la búsqueda: ***')
+            for contacto in resultados:
+                print(f'ID: {contacto.id_contacto}, Nombre: {contacto.nombre}, Teléfono: {contacto.telefono}, Email: {contacto.email}')
+        else:
+            print(f'No se encontraron contactos con el nombre "{nombre_buscar}".')
 
+    def eliminar_contacto(self):
+        try:
+            id_contacto = int(input('Introduce el ID del contacto que deseas eliminar: '))
+            contactos = self.gestion_contactos.get_contactList()
+            contacto_a_eliminar = next((contacto for contacto in contactos if contacto.id_contacto == id_contacto), None)
+            
+            if contacto_a_eliminar:
+                self.gestion_contactos.contactList = [contacto for contacto in contactos if contacto.id_contacto != id_contacto]
+                self.gestion_contactos.guardar_contacto_archivo(self.gestion_contactos.contactList)
+                print(f'Contacto con ID {id_contacto} eliminado correctamente.')
+            else:
+                print(f'No se encontró un contacto con el ID {id_contacto}.')
+        except ValueError:
+            print('Error: Introduce un número válido para el ID.')
+        except Exception as e:
+            print(f'Ocurrió un error al eliminar el contacto: {e}')
 
 # Programa Principal
 if __name__ == '__main__':

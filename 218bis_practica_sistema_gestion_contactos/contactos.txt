@@ -1,4 +1,3 @@
-1,RGRG,234523452345,rgrgrg@gmail.com
-2,Anna,354123512354,annnna@gmail.com
-3,Nika,23452345,nik@gmail.com
-7,pepe,+34 678 345 123,rgrg@gmail.com
+2,Nika,4561234,Nika@gmail.com
+7,Anna,9876666,anna@gmail.com
+17,Pepa,98768476918234,pepa@gmail.com
