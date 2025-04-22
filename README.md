@@ -1,5 +1,7 @@
 # Curso IBM - Python Avanzado
 
+🚧 **WORK IN PROGRESS** – Updated every day until the end of the course 🚧
+
 Este repositorio contiene ejercicios, prácticas y pequeños proyectos desarrollados durante el curso **"Python Avanzado"** de IBM. La estructura está organizada por temas y módulos independientes para facilitar el aprendizaje y la reutilización de código.
 
 ## 🧱 Estructura del Proyecto
