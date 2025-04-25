@@ -34,3 +34,9 @@ Icon?
 # --- Archivos de bases de datos temporales ---
 *.sqlite3
 *.db
+
+# --- Archivos de configuración local --- evita subir secretos
+.env
+
+# --- Archivos cache Gitguardian ---
+.cache_ggshield
