@@ -1,3 +1,4 @@
+# nos permite seleccionar los registros de una tabla de la DB
 # import para variables de entorno seguras y protegidas
 from dotenv import load_dotenv
 import os
@@ -22,3 +23,6 @@ resultado = cursor.fetchall()
 for persona in resultado:
     print(persona)
 
+
+cursor.close()
+personas_db.close()
