@@ -39,4 +39,4 @@ Icon?
 .env
 
 # --- Archivos cache Gitguardian ---
-.cache_ggshield
+#.cache_ggshield
