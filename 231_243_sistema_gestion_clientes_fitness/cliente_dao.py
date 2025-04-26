@@ -34,9 +34,30 @@ class ClienteDAO:
                 cursor.close()
                 Conexion.liberar_conexion(conexion)
 
+    @classmethod
+    def insertar (cls, cliente):
+        conexion = None
+        try:
+            conexion = Conexion.obtener_conexion()
+            cursor = conexion.cursor()
+            valores = (cliente.nombre, cliente.apellido, cliente.membresia)
+            cursor.execute(cls.INSERTAR, valores)
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'Ocurrió un error al insertar un cliente: {e}')
+        finally:
+            if conexion is not None:
+                cursor.close()
+                Conexion.liberar_conexion(conexion)
 
 # lineas para comprobar que código funcioina
 if __name__ == '__main__':
+    # prueba insertar cliente
+    cliente1 = Cliente(nombre='Alejandra', apellido='Tellez', membresia=300)
+    clientes_insertados =ClienteDAO.insertar(cliente1)
+    print(f'Clientes insertados : {clientes_insertados}')
+
     #seleccionar los clientes
     clientes = ClienteDAO.seleccionar()
     for cliente in clientes:
