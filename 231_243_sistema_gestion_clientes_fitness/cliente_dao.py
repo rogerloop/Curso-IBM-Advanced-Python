@@ -7,7 +7,7 @@ class ClienteDAO:
     SELECCIONAR = 'SELECT * FROM clientes ORDER BY id'
     INSERTAR = 'INSERT INTO clientes(nombre, apellido, membresia) VALUES(%s, %s, %s)'
     ACTUALIZAR = 'UPDATE clientes SET nombre=%s, apellido=%s, membresia=%s WHERE id=%s'
-    DELETE = 'DELETE FROM cliente WHERE id=%s'
+    ELIMINAR = 'DELETE FROM clientes WHERE id=%s'
     
     # Creamos el método de clase seleccionar    
     @classmethod
@@ -68,22 +68,25 @@ class ClienteDAO:
                 cursor.close()
                 Conexion.liberar_conexion(conexion)
 
+    @classmethod
+    def eliminar (cls, cliente):
+        conexion = None
+        try:
+            conexion = Conexion.obtener_conexion()
+            cursor = conexion.cursor()
+            valores = (cliente.id,)
+            cursor.execute(cls.ELIMINAR, valores)
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'Ocurrió un error al eliminar un cliente: {e}')
+        finally:
+            if conexion is not None:
+                cursor.close()
+                Conexion.liberar_conexion(conexion)
+
 # lineas para comprobar que código funcioina
 if __name__ == '__main__':
-    # prueba insertar cliente
-    #cliente1 = Cliente(nombre='Alejandra', apellido='Tellez', membresia=300)
-    #clientes_insertados =ClienteDAO.insertar(cliente1)
-    #print(f'Clientes insertados : {clientes_insertados}')
-
-    # prueba actualizar cliente
-    cliente_actualizar = Cliente(3, 'Alexa', 'Tellez', 400)
-    clientes_actualizados = ClienteDAO.actualizar(cliente_actualizar)
-    print(f'Clientes actualizados: {clientes_actualizados}')
-    
-
-    #seleccionar los clientes
-    clientes = ClienteDAO.seleccionar()
-    for cliente in clientes:
-        print(cliente)
+    pass
 
 
