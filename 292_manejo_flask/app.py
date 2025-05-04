@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from cliente_dao import ClienteDAO
+from cliente import Cliente  # Importing the Cliente class
+from cliente_forma import ClienteForm
 
 app = Flask(__name__)
 
@@ -12,7 +14,11 @@ def inicio():
     
     # Recuperamos clientes de la DB
     clientes_db = ClienteDAO.seleccionar()
-    return render_template('index.html', titulo=titulo_app, clientes=clientes_db)
+    # Creamos un objeto de cliente form vacio
+    cliente = Cliente()
+    cliente_form = ClienteForm(obj=cliente)
+
+    return render_template('index.html', titulo=titulo_app, clientes=clientes_db, form=cliente_form)
 
 if __name__ == '__main__':
     app.run(debug=True)
