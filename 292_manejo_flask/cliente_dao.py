@@ -89,4 +89,12 @@ class ClienteDAO:
 if __name__ == '__main__':
     pass
 
+    # seleccionar los clientes
+    #clientes = ClienteDAO.seleccionar()
+    #for cliente in clientes:
+    #    print(cliente)
+
+
+
+
 
