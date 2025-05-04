@@ -21,6 +21,29 @@
         <!-- contenedor del formulario -->
         <div class="border rounded-3 p-2">
           <!-- aquí va el formulario -->
+          <form action="/guardar" method="post" autocomplete="off">
+            <!-- Nombre -->
+            <div class="form-floating py-2">
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre"/>
+              <label for="nombre">Nombre</label>
+            </div>
+             <!-- Apellido -->
+             <div class="form-floating py-2">
+              <input type="text" class="form-control" id="apellido" placeholder="Apellido"/>
+              <label for="apellido">Apellido</label>
+            </div>
+             <!-- Membresía -->
+             <div class="form-floating py-2">
+              <input type="number" class="form-control" id="membresia" placeholder="Membresia"/>
+              <label for="membresia">Membresía</label>
+            </div>
+            <div class="text-center py-2">
+              <button type="submit" class="btn btn-warning btn-sm me-3">
+                Guardar
+              </button>
+              <input type="reset" class="btn btn-danger btn-sm" value="Limpiar"/>
+            </div>
+          </form>
         </div>  <!-- div cierre del contenedor del formulario -->     
         <!-- contenedor del listado de clientes -->
         <div class="border rounded-3 p-2">
