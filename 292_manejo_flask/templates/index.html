@@ -22,10 +22,13 @@
         <div class="border rounded-3 p-2">
           <!-- aquí va el formulario -->
           <form action="/guardar" method="post" autocomplete="off">
+            {{form.csrf_token}}
             <!-- Nombre -->
             <div class="form-floating py-2">
-              <input type="text" class="form-control" id="nombre" placeholder="Nombre"/>
-              <label for="nombre">Nombre</label>
+ <!--              <input type="text" class="form-control" id="nombre" placeholder="Nombre"/>
+              <label for="nombre">Nombre</label> -->
+              {{form.nombre(class="form-control", placeholder="Nombre")}}
+              {{form.nombre.label}}
             </div>
              <!-- Apellido -->
              <div class="form-floating py-2">
