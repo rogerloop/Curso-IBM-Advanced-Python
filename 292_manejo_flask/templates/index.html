@@ -32,19 +32,28 @@
             </div>
              <!-- Apellido -->
              <div class="form-floating py-2">
-              <input type="text" class="form-control" id="apellido" placeholder="Apellido"/>
-              <label for="apellido">Apellido</label>
+<!--              <input type="text" class="form-control" id="apellido" placeholder="Apellido"/>
+              <label for="apellido">Apellido</label> -->
+              {{form.apellido(class="form-control", placeholder="Apellido")}}
+              {{form.apellido.label}}
             </div>
              <!-- Membresía -->
              <div class="form-floating py-2">
-              <input type="number" class="form-control" id="membresia" placeholder="Membresia"/>
-              <label for="membresia">Membresía</label>
+<!--              <input type="number" class="form-control" id="membresia" placeholder="Membresia"/>
+              <label for="membresia">Membresía</label> -->
+              {{form.membresia(class="form-control", placeholder="Membresía")}}
+              {{form.membresia.label}}
             </div>
+            <!-- Botones -->
             <div class="text-center py-2">
-              <button type="submit" class="btn btn-warning btn-sm me-3">
+<!--              <button type="submit" class="btn btn-warning btn-sm me-3">
                 Guardar
-              </button>
-              <input type="reset" class="btn btn-danger btn-sm" value="Limpiar"/>
+              </button> -->
+              {{form.guardar(class="btn btn-warning btn-sm me-3")}}
+<!--              <input type="reset" class="btn btn-danger btn-sm" value="Limpiar"/> -->
+             <a href="/limpiar" class="btn btn-danger btn-sm">
+                Limpiar
+              </a> 
             </div>
           </form>
         </div>  <!-- div cierre del contenedor del formulario -->     
